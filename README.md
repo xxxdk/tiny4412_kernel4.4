@@ -2,8 +2,11 @@
 support device tree
 
 kernel: linux-4.4.0
+
 u-boot: u-boot 2010.12
+
 busybox: busybox 1.25
+
 compiled tool:  arm-none-linux-gnueabi-gcc
       (gcc version 4.8.3 20140320 (prerelease)
         (Sourcery CodeBench Lite 2014.05-29))
