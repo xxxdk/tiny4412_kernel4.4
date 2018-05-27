@@ -12,3 +12,5 @@ compiled tool:  arm-none-linux-gnueabi-gcc
         (Sourcery CodeBench Lite 2014.05-29))
 
 相关链接：http://www.cnblogs.com/pengdonglin137/tag/TINY4412/ 3Q
+
+相关资源下载链接：http://p9e5wkpqz.bkt.clouddn.com/arm-linux-gcc-4.8.3.tar.gz
