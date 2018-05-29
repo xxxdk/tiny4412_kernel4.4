@@ -1,1 +1,80 @@
+
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+# Normal rules
+#
+
+*.rej
+*.orig
+*.a
+*.o
+*~
+*.swp
+*.patch
+
+#
+# Top-level generic files
+#
+
+/uboot_tiny4412/System.map
+/uboot_tiny4412/u-boot
+/uboot_tiny4412/u-boot.hex
+/uboot_tiny4412/u-boot.map
+/uboot_tiny4412/u-boot.bin
+/uboot_tiny4412/u-boot.srec
+/uboot_tiny4412/u-boot.ldr
+/uboot_tiny4412/u-boot.ldr.hex
+/uboot_tiny4412/u-boot.ldr.srec
+/uboot_tiny4412/u-boot.lds
+/uboot_tiny4412/u-boot-onenand.bin
+/uboot_tiny4412/u-boot-flexonenand.bin
+
+#
+# Generated files
+#
+
+*.depend
+/uboot_tiny4412/LOG
+/uboot_tiny4412/errlog
+/uboot_tiny4412/reloc_off
+
+/uboot_tiny4412/include/generated/
+/uboot_tiny4412/lib/asm-offsets.s
+
+# stgit generated dirs
+patches-*
+.stgit-edit.txt
+
+# quilt's files
+patches
+series
+
+# gdb files
+.gdb_history
+
+# cscope files
+cscope.*
+
+# tags files
+/uboot_tiny4412/tags
+/uboot_tiny4412/ctags
+/uboot_tiny4412/etags
+
+# OneNAND IPL files
+/uboot_tiny4412/onenand_ipl/onenand-ipl*
+/uboot_tiny4412/onenand_ipl/board/*/onenand*
+/uboot_tiny4412/onenand_ipl/board/*/*.S
+
+# BL2
+/uboot_tiny4412/sd_fuse/*/bl2.bin
+
+# Host tools
+/uboot_tiny4412/sd_fuse/mkbl2
+/uboot_tiny4412/sd_fuse/sd_fdisk
+
+
+#################################
 *.[oa]
