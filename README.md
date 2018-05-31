@@ -13,6 +13,8 @@ compiled tool:  arm-none-linux-gnueabi-gcc
 
 相关链接：http://www.cnblogs.com/pengdonglin137/tag/TINY4412/ 3Q
 
+busybox制作:https://blog.csdn.net/mybelief321/article/details/9995199
+
 相关资源下载链接：
 
 http://p9hmezxvc.bkt.clouddn.com/arm-linux-gcc-4.8.3.tar.gz
