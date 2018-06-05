@@ -9,7 +9,7 @@
  * published by the Free Software Foundation.
  *
  */
- 
+
 #include <common.h>
 #include <asm/arch/cpu.h>
 #include <asm/arch/gpio.h>
@@ -148,7 +148,7 @@ int board_init(void)
 	strncpy(&bl1_version[0], (char *)0x02022fc8, 8);
 	printf("\nBL1 version:  %s\n", &bl1_version[0]);
 #endif
-	
+
 #ifdef CONFIG_SMC911X
 	smc9115_pre_init();
 #endif
@@ -184,7 +184,7 @@ int board_init(void)
 int dram_init(void)
 {
 	//gd->ram_size = get_ram_size((long *)PHYS_SDRAM_1, PHYS_SDRAM_1_SIZE);
-	
+
 	return 0;
 }
 
@@ -236,7 +236,7 @@ int board_eth_init(bd_t *bis)
 int checkboard(void)
 {
 	printf("Board:\t%s\n", CONFIG_BOARD_NAME);
-	
+
 	return 0;
 }
 #endif
@@ -289,4 +289,3 @@ ulong virt_to_phy_s5pv310(ulong addr)
 	return addr;
 }
 #endif
-

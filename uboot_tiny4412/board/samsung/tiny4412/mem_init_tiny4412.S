@@ -68,12 +68,12 @@ mem_ctrl_asm_init_r0:
 
 	ldr	r1, =0x0FFF301A
 	str	r1, [r0, #DMC_CONCONTROL]
-	ldr	r1, =0x00312640
+	ldr	r1, =0x00302640
 	str	r1, [r0, #DMC_MEMCONTROL]
 
-	ldr	r1, =0x40e01323
+	ldr	r1, =0x40C01333
 	str	r1, [r0, #DMC_MEMCONFIG0]
-	ldr	r1, =0x60e01323
+	ldr	r1, =0x80C01333
 	str	r1, [r0, #DMC_MEMCONFIG1]
 
 #ifdef CONFIG_IV_SIZE
@@ -98,11 +98,11 @@ mem_ctrl_asm_init_r0:
 	str	r1, [r0, #DMC_TIMINGPOWER]
 #endif
 #ifdef MCLK_400
-	ldr	r1, =0x4046654f
+	ldr	r1, =0x6946654f
 	str	r1, [r0, #DMC_TIMINGROW] @TimingRow
-	ldr	r1, =0x46400506
+	ldr	r1, =0x46460506
 	str	r1, [r0, #DMC_TIMINGDATA] @TimingData
-	ldr	r1, =0x52000a3c
+	ldr	r1, =0x5200183c
 	str	r1, [r0, #DMC_TIMINGPOWER] @TimingPower
 #endif
 
@@ -134,7 +134,7 @@ mem_ctrl_asm_init_r0:
 4:	subs	r2, r2, #1
 	bne	4b
 
-#if DRAM_USES_CS1
+#if 0
 	/* chip 1 */
 	ldr	r1, =0x07100000
 	str	r1, [r0, #DMC_DIRECTCMD]
@@ -210,12 +210,12 @@ mem_ctrl_asm_init_r0:
 
 	ldr	r1, =0x0FFF301A
 	str	r1, [r0, #DMC_CONCONTROL]
-	ldr	r1, =0x00312640
+	ldr	r1, =0x00302640
 	str	r1, [r0, #DMC_MEMCONTROL]
 
-	ldr	r1, =0x40e01323			@Interleaved?
+	ldr	r1, =0x40c01333			@Interleaved?
 	str	r1, [r0, #DMC_MEMCONFIG0]
-	ldr	r1, =0x60e01323
+	ldr	r1, =0x80C01323
 	str	r1, [r0, #DMC_MEMCONFIG1]
 
 #ifdef CONFIG_IV_SIZE
@@ -240,11 +240,11 @@ mem_ctrl_asm_init_r0:
 	str	r1, [r0, #DMC_TIMINGPOWER]
 #endif
 #ifdef MCLK_400
-	ldr	r1, =0x4046654f
+	ldr	r1, =0x6946654f
 	str	r1, [r0, #DMC_TIMINGROW] @TimingRow
 	ldr	r1, =0x46400506
 	str	r1, [r0, #DMC_TIMINGDATA] @TimingData
-	ldr	r1, =0x52000a3c
+	ldr	r1, =0x5200183c
 	str	r1, [r0, #DMC_TIMINGPOWER] @TimingPower
 #endif
 
@@ -276,7 +276,7 @@ mem_ctrl_asm_init_r0:
 4:	subs	r2, r2, #1
 	bne	4b
 
-#if DRAM_USES_CS1
+#if 0
 	/* chip 1 */
 	ldr	r1, =0x07100000
 	str	r1, [r0, #DMC_DIRECTCMD]
@@ -329,4 +329,3 @@ mem_ctrl_asm_init_r0:
 	str	r1, [r0, #DMC_CONCONTROL]
 
 	mov	pc, lr
-

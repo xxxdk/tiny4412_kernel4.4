@@ -281,9 +281,9 @@
 #ifdef CONFIG_EVT0_STABLE
 #define CONFIG_NR_DRAM_BANKS	2
 #else
-#define CONFIG_NR_DRAM_BANKS	4
+#define CONFIG_NR_DRAM_BANKS	8
 #endif
-#define SDRAM_BANK_SIZE         0x10000000    /* 256 MB */
+#define SDRAM_BANK_SIZE         0x08000000    /* 128 MB */
 #define PHYS_SDRAM_1            CONFIG_SYS_SDRAM_BASE /* SDRAM Bank #1 */
 #define PHYS_SDRAM_1_SIZE       SDRAM_BANK_SIZE
 #define PHYS_SDRAM_2            (CONFIG_SYS_SDRAM_BASE + SDRAM_BANK_SIZE) /* SDRAM Bank #2 */
@@ -331,7 +331,7 @@
 */
 /* Fastboot variables */
 #define CFG_FASTBOOT_TRANSFER_BUFFER            (0x48000000)
-#define CFG_FASTBOOT_TRANSFER_BUFFER_SIZE       (0x18000000)   /* 384MB */
+#define CFG_FASTBOOT_TRANSFER_BUFFER_SIZE       (0x30000000)   /* 768MB */
 #define CFG_FASTBOOT_ADDR_KERNEL                (0x40008000)
 #define CFG_FASTBOOT_ADDR_RAMDISK               (0x41000000)
 #define CFG_FASTBOOT_PAGESIZE                   (2048)  // Page size of booting device
