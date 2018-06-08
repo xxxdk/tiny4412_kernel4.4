@@ -19,7 +19,7 @@
 #define MCLK_330
 #endif
 
-#define DRAM_USES_CS1		1
+#define DRAM_USES_CS1		0
 
 	.globl mem_ctrl_asm_init_r0
 mem_ctrl_asm_init_r0:
@@ -134,7 +134,7 @@ mem_ctrl_asm_init_r0:
 4:	subs	r2, r2, #1
 	bne	4b
 
-#if 0
+#if DRAM_USES_CS1
 	/* chip 1 */
 	ldr	r1, =0x07100000
 	str	r1, [r0, #DMC_DIRECTCMD]
@@ -276,7 +276,7 @@ mem_ctrl_asm_init_r0:
 4:	subs	r2, r2, #1
 	bne	4b
 
-#if 0
+#if DRAM_USES_CS1
 	/* chip 1 */
 	ldr	r1, =0x07100000
 	str	r1, [r0, #DMC_DIRECTCMD]
