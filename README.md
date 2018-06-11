@@ -1,7 +1,7 @@
 # tiny4412_kernel4.4
 support device tree
 
-kernel: linux-4.4.0
+kernel: linux-4.4.1
 
 u-boot: u-boot 2010.12
 
