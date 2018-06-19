@@ -14,6 +14,7 @@
 /dts-v1/;
 #include "exynos4412.dtsi"
 #include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/usb4640/usb4640.h>
 
 / {
 	model = "FriendlyARM TINY4412 board based on Exynos4412";
@@ -21,7 +22,7 @@
 
 	chosen {
 		stdout-path = &serial_0;
-    bootargs = "root=/dev/ram0 rw rootfstype=ext4 console=ttySAC0, 115200 init=/linuxrc earlyprintk";
+		bootargs = "root=/dev/ram0 rw rootfstype=ext4 console=ttySAC0,115200n8 ethmac=1C:6F:65:34:51:7E init=/linuxrc earlyprintk";
 	};
 
 	memory {
@@ -71,6 +72,12 @@
 	};
 };
 
+usb-hub {
+	compatible = "smsc,usb4640";
+	reset-gpios = <&gpm2 4 GPIO_ACTIVE_LOW>;
+	initial-mode = <USB4640_MODE_HUB>;
+};
+
 &rtc {
 	status = "okay";
 };
@@ -96,5 +103,33 @@
 };
 
 &serial_3 {
+	status = "okay";
+};
+
+&exynos4_usbphy {
+	status = "okay";
+};
+
+&ehci {
+	status = "okay";
+	port@0{
+		status = "okay";
+	};
+	port@1{
+		status = "okay";
+	};
+	port@2{
+		status = "okay";
+	};
+};
+
+&ohci {
+	status = "okay";
+	port@0{
+		status = "okay";
+	};
+};
+
+&hsotg {
 	status = "okay";
 };
