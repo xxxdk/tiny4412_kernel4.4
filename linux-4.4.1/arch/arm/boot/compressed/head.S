@@ -22,6 +22,7 @@
  * 100% relocatable.  Any attempt to do so will result in a crash.
  * Please select one of the following when turning on debugging.
  */
+#define DEBUG
 #ifdef DEBUG
 
 #if defined(CONFIG_DEBUG_ICEDCC)
@@ -65,7 +66,8 @@
 		.endm
 #else
 		.macro	loadsp,	rb, tmp
-		addruart \rb, \tmp
+		// addruart \rb, \tmp
+    addruart \rb, \tmp, \tmp
 		.endm
 #endif
 #endif
@@ -536,6 +538,24 @@ not_relocated:	mov	r0, #0
  *   r7  = architecture ID
  *   r8  = atags pointer
  */
+    stmfd sp!, {r0-r3, r10-r12, lr}
+    kputc #'\n'
+    kputc #'a'
+    kputc #'t'
+    kputc #'a'
+    kputc #'g'
+    kputc #'s'
+    kputc #':'
+    kputc #' '
+    kputc #'0'
+    kputc #'x'
+    kphex r8, 8        /* atags pointer */
+    kputc #'\n'
+    mov r0, r8
+    bl memdump        /* dump 256 bytes at start of kernel */
+    kputc #'\n'
+    ldmfd sp!, {r0-r3, r10-r12, lr}
+
 		mov	r0, r4
 		mov	r1, sp			@ malloc space above stack
 		add	r2, sp, #0x10000	@ 64k max
@@ -545,6 +565,25 @@ not_relocated:	mov	r0, #0
 		bl	cache_off
 		mov	r1, r7			@ restore architecture number
 		mov	r2, r8			@ restore atags pointer
+
+    stmfd sp!, {r0-r3, r10-r12, lr}
+    kputc #'\n'
+    kputc #'a'
+    kputc #'t'
+    kputc #'a'
+    kputc #'g'
+    kputc #'s'
+    kputc #':'
+    kputc #' '
+    kputc #'0'
+    kputc #'x'
+    kphex r8, 8        /* atags pointer */
+    kputc #'\n'
+    mov r0, r8
+    bl memdump        /* dump 256 bytes at start of kernel */
+    kputc #'\n'
+    ldmfd sp!, {r0-r3, r10-r12, lr}
+
 
 #ifdef CONFIG_ARM_VIRT_EXT
 		mrs	r0, spsr		@ Get saved CPU boot mode
@@ -907,7 +946,7 @@ proc_types:
 		W(b)	__armv3_mpu_cache_on
 		W(b)	__armv3_mpu_cache_off
 		W(b)	__armv3_mpu_cache_flush
-		
+
 		.word	0x41009400		@ ARM94x
 		.word	0xff00ff00
 		W(b)	__armv4_mpu_cache_on
@@ -1121,7 +1160,7 @@ __armv4_mpu_cache_flush:
 		mcrne	p15, 0, ip, c7, c5, 0	@ invalidate I cache
 		mcr	p15, 0, ip, c7, c10, 4	@ drain WB
 		mov	pc, lr
-		
+
 __fa526_cache_flush:
 		tst	r4, #1
 		movne	pc, lr
