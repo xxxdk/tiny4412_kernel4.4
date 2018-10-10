@@ -12,4 +12,4 @@ sudo umount ./initrd
 sudo gzip --best -c ramdisk > ramdisk.gz
 sudo mkimage -n "ramdisk" -A arm -O linux -T ramdisk -C gzip -d ramdisk.gz ramdisk.img
 
-rm ramdisk ramdisk.gz initrd  -rf
+rm initrd  -rf
