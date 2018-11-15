@@ -25,7 +25,7 @@
 		stdout-path = &serial_0;
 		bootargs = "root=/dev/ram0 rw rootfstype=ext4 ramdisk=12288 initrd=0x41000000,12M console=ttySAC0,115200n8 ethmac=1C:6F:65:34:51:7E init=/linuxrc earlyprintk";
 	};
-
+//jinkela
 	memory {
 		reg = <0x40000000 0x40000000>;
 	};
