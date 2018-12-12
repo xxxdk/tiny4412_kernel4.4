@@ -16,6 +16,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/usb4640/usb4640.h>
 #include <dt-bindings/pwm/pwm.h>
+#include <autoconf.h>
 
 / {
 	model = "FriendlyARM TINY4412 board based on Exynos4412";
@@ -73,9 +74,9 @@
 	};
 
   usb-hub {
-  	compatible = "smsc,usb4640";
-  	reset-gpios = <&gpm2 4 GPIO_ACTIVE_LOW>;
-  	initial-mode = <USB4640_MODE_HUB>;
+	  	compatible = "smsc,usb4640";
+	  	reset-gpios = <&gpm2 4 GPIO_ACTIVE_LOW>;
+	  	initial-mode = <USB4640_MODE_HUB>;
   };
 
 	regulators {
@@ -97,7 +98,7 @@
 		pwms = <&pwm 0 1000000000 PWM_POLARITY_NORMAL>;
 		pwm-names = "backlight";
 		brightness-levels = <0 1 2 3 4 5 6 7 8 9 10>;
-		default-brightness-level = <3>;
+		default-brightness-level = <0>;
 
 #if 0
 		pinctrl-0 = <&pwm0_out>;
@@ -188,4 +189,23 @@
 
 &hsotg {
 	status = "okay";
+};
+
+&i2c_3 {
+	samsung,i2c-sda-delay = <100>;
+	samsung,i2c-slave-addr = <0x10>;
+	samsung,i2c-max-bus-freq = <200000>;
+	pinctrl-0 = <&i2c3_bus>;
+	pinctrl-names = "default";
+	status = "okay";
+ 	mma7660@4c {
+		compatible = "freescale,mma7660";
+		reg = <0x4c>;
+		interrupt-parent = <&gpx3>;
+		interrupts = <1 2>;
+		poll_interval = <100>;
+		input_fuzz = <4>;
+		input_flat = <4>;
+		status = "okay";
+	};
 };

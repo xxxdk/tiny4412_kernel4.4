@@ -470,6 +470,14 @@ config SENSORS_MC13783_ADC
         help
           Support for the A/D converter on MC13783 and MC13892 PMIC.
 
+config SENSORS_MMA7660
+	tristate "Freescale MMA7660 Accelerometer"
+	depends on I2C
+	default n
+	help
+		This driver provides Support for the 3-Axis Orientation/Motion
+		Detection Sensor - MMA7660 of Freescale Semiconductor.
+
 config SENSORS_FSCHMD
 	tristate "Fujitsu Siemens Computers sensor chips"
 	depends on X86 && I2C
@@ -1452,7 +1460,7 @@ config SENSORS_ADS7871
 
 config SENSORS_AMC6821
 	tristate "Texas Instruments AMC6821"
-	depends on I2C 
+	depends on I2C
 	help
 	  If you say yes here you get support for the Texas Instruments
 	  AMC6821 hardware monitoring chips.
